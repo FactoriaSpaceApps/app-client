@@ -48,6 +48,7 @@ input {
       height: 110px !important;
       right: unset !important;
       left: 43%;
+      background-color: rgb(115 107 107 / 50%) !important;
 }
 
 .display-none,
