@@ -1,0 +1,67 @@
+name: "📖 Documentation Issue"
+description: "📝 Report an issue or suggest improvements for the documentation."
+title: "[Docs]: "
+labels: ["📚 documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📖 Documentation Issue
+        Thank you for helping us improve the documentation! 🚀
+  
+  - type: input
+    id: doc_section
+    attributes:
+      label: "📌 Affected Section"
+      description: "🔍 Provide the specific section or page where the issue exists."
+      placeholder: "e.g., 📜 Installation Guide, 📑 API Reference"
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: "🐛 Issue Description"
+      description: "📝 Describe the issue or suggested improvement."
+      placeholder: "⚠️ Explain what's wrong or what could be improved."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_content
+    attributes:
+      label: "✅ Expected Content"
+      description: "✨ Provide the corrected or expected documentation content if possible."
+      placeholder: "📌 e.g., Corrected examples, missing details, etc."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "🚦 Priority Level"
+      description: "⚡ How urgent is this issue?"
+      options:
+        - "⬇️ Low"
+        - "⚖️ Medium"
+        - "🔥 High"
+      default: 1
+
+  - type: checkboxes
+    id: additional_context
+    attributes:
+      label: "📂 Additional Context"
+      description: "🔎 Check any that apply."
+      options:
+        - label: "📌 This affects multiple pages."
+        - label: "🔄 This is related to a recent change."
+        - label: "💪 I am willing to help fix this issue."
+
+  - type: textarea
+    id: extra_info
+    attributes:
+      label: "🗂️ Additional Information"
+      description: "📎 Any extra details, references, or links."
+      placeholder: "🔗 Relevant links, screenshots, etc."
+    validations:
+      required: false
