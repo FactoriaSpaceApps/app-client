@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const log = document.querySelector(".messages"); // message log
       const username = document.querySelector("#user-name");
       username.value =
-            "user-" + Math.round(Math.random() * 10000);
+            "duck-" + Math.round(Math.random() * 10000);
       // when you want to send a message
       form.addEventListener("submit", (evt) => {
             evt.preventDefault();
