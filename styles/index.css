@@ -1,29 +1,102 @@
-body {
-          margin: 0;
-          padding: 0;
-          font-family: Arial, sans-serif;
-          background-color: #10496a;
-          color : #fff!important;
+
+:root {
+  --color-primary: #105bd8;
+  --color-primary-darker: #0b3d91;
+  --color-primary-darkest: #061f4a;
+
+  /* Base and Gray Colors */
+  --color-base: #212121;
+  --color-gray-dark: #323a45;
+  --color-gray-light: #aeb0b5;
+  --color-white: #ffffff;
+
+  /* Secondary Colors */
+  --color-primary-alt: #02bfe7;
+  --color-primary-alt-darkest: #046b99;
+  --color-primary-alt-dark: #00a6d2;
+  --color-primary-alt-light: #9bdaf1;
+  --color-primary-alt-lightest: #e1f3f8;
+
+  --color-secondary: #dd361c;
+  --color-secondary-darkest: #99231b;
+  --color-secondary-dark: #c62d1f;
+  --color-secondary-light: #e59892;
+  --color-secondary-lightest: #f9e0de;
+
+  /* Background Colors */
+  --color-gray: #5b616b;
+  --color-gray-lighter: #d6d7d9;
+  --color-gray-lightest: #f1f1f1;
+  --color-gray-warm-dark: #494440;
+  --color-gray-warm-light: #e4e2e0;
+  --color-gray-cool-light: #dce4ef;
+
 }
-.deep, section {
-          margin: 0 auto;
-          text-align: center;
-          background-color: #10496a;
-          margin-top: -5px;
-          padding: 20px;
-          border-bottom: 1px solid #fff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h1 {
-          font-size: 2em;
+body,main{
+	width: 100%;
 }
-h1, h2 {
-          padding: 20px
+
+.container {
+    width: 100%;
+	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
-.logo {
-          border: none; /* Asegura que no haya bordes */
+
+.immersive-iframe {
+    border: none;
+    width: 100%;
+    height: 600px;
 }
-#asistente, #chat-input {
-          width: 100%;
-          max-width: 400px;
-          margin: 0 auto;
+.wellcome {
+        text-align: center;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+}
+
+.wellcome h1 {
+          font-size: 5em;
+          margin: 2rem 10rem;
+}
+
+.agent {
+    text-align: center;
+    background-color: var(--color-gray-cool-light);
+    color: var(--color-base);
+    padding: 2rem 0;
+    align-items: center;
+}
+
+.agent button{
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    max-width: 40%;
+    font-size: 1.2rem;
+}
+
+.metaverse {
+    text-align: center;
+    background-color: var(--color-gray-cool-light);
+    color: var(--color-base);
+    padding: 2rem 0;
+    margin: 0;
+}
+
+.agent h1, .metaverse h2 {
+    font-size: 3em;
+    margin: 1rem 10rem;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem 0;
 }
