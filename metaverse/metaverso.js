@@ -88,3 +88,19 @@ socket.on("colision", (data) => {
             data.position.z
       );
 });
+
+AFRAME.registerComponent('clickequipo', {
+      init: function () {
+            let el = this.el;
+            let play = false;
+            el.addEventListener('click', function () {
+                  if (play) {
+                        document.getElementById('clickEquipo').pause()
+                        play = false;
+                        return;
+                  }
+                  play = true;
+                  document.getElementById('clickEquipo').play()
+            });
+      }
+});

@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-enter-vr,
+.a-enter-ar {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    bottom: 65px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
