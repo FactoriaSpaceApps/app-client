@@ -24,14 +24,14 @@ input {
       width: 30%;
       padding: 10px;
       border: none;
-      background-color: #4caf50;
+      background-color: #0b3d91;;
       color: #fff;
       border-radius: 0 8px 8px 0;
       cursor: pointer;
 }
 
 #send-btn:hover {
-      background-color: #43a047;
+      background-color:  #dd361c;
 }
 
 .messages {

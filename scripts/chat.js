@@ -103,6 +103,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const responseElement = document.getElementById('response');
     const audioPlayer = document.getElementById('audioPlayer');
     const chatbotAvatar = document.getElementById('asistente');
+    const voiceTranscriptionContainer = document.getElementById('voice-transcription-container');
+    const transcriptionText = document.getElementById('transcription-text');
+    const confirmVoiceButton = document.getElementById('confirm-voice-button');
+    const cancelVoiceButton = document.getElementById('cancel-voice-button');
+    const chatInputContainer = document.getElementById('chat-input-container');
+
+    let currentTranscript = '';
+    let recognition = null;
 
     // Verifica si el navegador soporta la API de Web Speech
     if (!('webkitSpeechRecognition' in window)) {
@@ -111,27 +119,71 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    const recognition = new webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.lang = 'es-ES';
+    // Initialize speech recognition
+    function initializeRecognition() {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'es-ES';
 
-    recognition.onstart = function() {
-        microphoneButton.classList.add('recording');
-        chatbotAvatar.classList.add('listening');
-        responseElement.innerHTML = 'Escuchando...';
-    };
+        recognition.onstart = function() {
+            microphoneButton.classList.add('recording');
+            chatbotAvatar.classList.add('listening');
+            voiceTranscriptionContainer.style.display = 'block';
+            transcriptionText.classList.add('listening');
+            transcriptionText.querySelector('p').textContent = 'Escuchando... Habla ahora';
+            
+            // Hide chat input if visible
+            chatInputContainer.style.display = 'none';
+        };
 
-    recognition.onend = function() {
-        microphoneButton.classList.remove('recording');
-        chatbotAvatar.classList.remove('listening');
-    };
+        recognition.onend = function() {
+            microphoneButton.classList.remove('recording');
+            chatbotAvatar.classList.remove('listening');
+            transcriptionText.classList.remove('listening');
+            
+            if (currentTranscript) {
+                transcriptionText.querySelector('p').textContent = currentTranscript;
+            } else {
+                transcriptionText.querySelector('p').textContent = 'No se detectó audio. Intenta de nuevo.';
+            }
+        };
 
-    recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
+        recognition.onresult = function(event) {
+            let interimTranscript = '';
+            let finalTranscript = '';
+
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript;
+                } else {
+                    interimTranscript += transcript;
+                }
+            }
+
+            currentTranscript = finalTranscript || interimTranscript;
+            
+            if (interimTranscript) {
+                transcriptionText.querySelector('p').textContent = interimTranscript;
+            } else if (finalTranscript) {
+                transcriptionText.querySelector('p').textContent = finalTranscript;
+            }
+        };
+
+        recognition.onerror = function(event) {
+            console.error('Speech recognition error:', event.error);
+            microphoneButton.classList.remove('recording');
+            chatbotAvatar.classList.remove('listening');
+            transcriptionText.classList.remove('listening');
+            transcriptionText.querySelector('p').textContent = 'Error en el reconocimiento de voz. Intenta de nuevo.';
+        };
+    }
+
+    // Process voice input
+    function processVoiceInput(transcript) {
         responseElement.innerHTML = 'Procesando: "' + transcript + '"';
         
-        // Process the voice input directly
         fetch('https://webextendida.es/chatOso.php?question=' + encodeURIComponent(transcript), {
             method: 'GET',
             headers: {
@@ -188,9 +240,33 @@ document.addEventListener('DOMContentLoaded', function () {
             responseElement.innerHTML = 'Ocurrió un error: ' + error.message;
             chatbotAvatar.classList.remove('listening', 'speaking');
         });
-    };
+    }
 
+    // Event listeners
     microphoneButton.addEventListener('click', function () {
-        recognition.start();
+        if (!recognition) {
+            initializeRecognition();
+        }
+        
+        if (recognition) {
+            currentTranscript = '';
+            recognition.start();
+        }
+    });
+
+    confirmVoiceButton.addEventListener('click', function() {
+        if (currentTranscript) {
+            voiceTranscriptionContainer.style.display = 'none';
+            processVoiceInput(currentTranscript);
+        }
+    });
+
+    cancelVoiceButton.addEventListener('click', function() {
+        voiceTranscriptionContainer.style.display = 'none';
+        currentTranscript = '';
+        if (recognition) {
+            recognition.stop();
+        }
+        transcriptionText.querySelector('p').textContent = 'Escuchando... Habla ahora';
     });
 });
