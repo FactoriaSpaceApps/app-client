@@ -89,10 +89,13 @@ socket.on("colision", (data) => {
       );
 });
 
+
 AFRAME.registerComponent('clickequipo', {
       init: function () {
-            let el = this.el;
-            let play = false;
+            var el = this.el;
+            play = false;
+            console.log(el);
+            console.log('clickequipo');
             el.addEventListener('click', function () {
                   if (play) {
                         document.getElementById('clickEquipo').pause()
@@ -104,3 +107,23 @@ AFRAME.registerComponent('clickequipo', {
             });
       }
 });
+
+AFRAME.registerComponent('videoted', {
+      init: function () {
+            var el = this.el;
+            play = false;
+            console.log(el);
+            console.log('videoted');
+            el.addEventListener('click', function () {
+                  if (play) {
+                        document.getElementById('videoted').pause()
+                        play = false;
+                        return;
+                  }
+                  play = true;
+                  document.getElementById('videoted').play()
+            });
+      }
+});
+
+
