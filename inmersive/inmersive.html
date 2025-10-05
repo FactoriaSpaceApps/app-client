@@ -12,20 +12,19 @@
 </head>
 <body>
           <nav>
-                    <button type="button" id='init' class="button-control" onclick="init()">Start</button>
-                    <button type="button" id='more' class="button-control" onclick="more()" style="display:none">I want to know more</button>
-                    <button type="button" id='deep' class="button-control" onclick="deep()" style="display:none">I want to dive deeper</button>
+                    <button type="button" id='init' class="button-control" onclick="init()">Tap me !</button>
+                    <button type="button" id='more' class="button-control" onclick="more()" style="display:none">Tell me more!</button>
           </nav>
           <a-scene cursor="rayOrigin: mouse">
                     <a-light type="ambient" color="#FFF" intensity="0.5"></a-light>
                     <a-light type="directional" color="#FFF" intensity="0.5" position="3 3 3"></a-light>
                     <a-assets>
                               <a-asset-item id="bear" src="assets/oso-walk.glb" />
+                              <a-asset-item id="HeartModel" src="assets/Heart.glb" />
                               <a-asset-item id="earthmodel" src="assets/earth.glb" />
                               <a-asset-item id="iceberg2" src="assets/Icicle.glb" />
-                              <audio id="introaudio" src="assets/audio/intro.mp3"></audio>
-                              <audio id="moreaudio" src="assets/audio/more.mp3"></audio>
-                              <audio id="deepaudio" src="assets/audio/deep.mp3"></audio>
+                              <audio id="introaudio" src="assets/audio/intro_oldbear.mp3"></audio>
+                              <audio id="moreaudio" src="assets/audio/more_oldbear.mp3"></audio>
                     </a-assets>
                     <a-entity position="0 0 2" rotation="0 0 0" id="rig" movement-controls="controls: gamepad,keyboard,nipple; constrainToNavMesh: true">
                     <a-entity camera position="0 1.3 -2" look-controls="pointerLockEnabled: false;"></a-entity>
