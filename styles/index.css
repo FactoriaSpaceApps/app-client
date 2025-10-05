@@ -39,7 +39,7 @@
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  --spacing-2xl: 4rem;
+  --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
 }
 
@@ -107,8 +107,9 @@ p {
 .welcome {
     position: relative;
     height: 100vh;
-    background: var(--color-white);
-    color: var(--color-nasa-blue);
+    background: linear-gradient(135deg, var(--color-nasa-dark-blue) 0%, var(--color-nasa-blue) 50%, var(--color-nasa-light-blue) 100%);
+    background: var(--color-bg-primary);
+    color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,6 +162,7 @@ p {
     font-weight: 300;
     opacity: 0.9;
     animation: fadeInUp 1s ease-out 0.5s both;
+    color:var(--color-nasa-blue)
 }
 
 @keyframes fadeInUp {
@@ -205,6 +207,30 @@ p {
 }
 
 /* Agent Section (Chatbot) */
+.agent {
+    color: var(--color-base);
+    padding: var(--spacing-3xl) 0;
+    text-align: center;
+    background: var(--color-nasa-dark-blue);
+    color: #000;
+
+}
+
+.agent h2 {
+    color: var(--color-bg-primary);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
+.agent p {
+    font-size: 1.25rem;
+    color: var(--color-bg-primary);
+    margin-bottom: var(--spacing-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* Chatbot Container */
 .chatbot-container {
@@ -460,22 +486,23 @@ p {
     color: var(--color-gray-dark);
 }
 
-/* Metaverse and Agent Section */
-.metaverse, .agent {
-    background:var(--color-nasa-blue);
+/* Metaverse Section */
+.metaverse {
+    background: linear-gradient(135deg, var(--color-nasa-blue) 0%, var(--color-nasa-dark-blue) 100%);
     color: var(--color-white);
     text-align: center;
     width: 100%;
     padding: var(--spacing-2xl);
+
 }
 
-.metaverse h2, .agent h2 {
+.metaverse h2 {
     font-size: 2.25rem;
     margin-bottom: var(--spacing-lg);
     font-weight: 700;
 }
 
-.metaverse p, .agent p {
+.metaverse p {
     font-size: 1.25rem;
     opacity: 0.9;
     max-width: 600px;
@@ -487,7 +514,7 @@ p {
 footer {
     background: linear-gradient(135deg, var(--color-nasa-dark-blue) 0%, var(--color-base) 100%);
     color: var(--color-white);
-    padding: var(--spacing-3xl);
+    padding: var(--spacing-lg);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -516,8 +543,8 @@ footer h2 {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
     max-width: 1000px;
     margin: 0 auto;
     position: relative;
@@ -525,18 +552,15 @@ footer h2 {
 }
 
 .team-member {
-    background: rgba(255, 255, 255, 0.1);
     padding: var(--spacing-sm);
     border-radius: 12px;
-    border: 1px solid rgba(2, 191, 231, 0.3);
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
 }
 
 .team-member:hover {
-    background: rgba(2, 191, 231, 0.2);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(2, 191, 231, 0.3);
+    background: var(--color-nasa-red);
+    transform: translateY(-5px);;
 }
 
 .team-member a {
@@ -555,7 +579,7 @@ footer h2 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .welcome h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     
     .welcome p {
@@ -570,13 +594,55 @@ footer h2 {
         font-size: 1.75rem;
     }
     
+    /* Mobile Footer Improvements */
+    footer {
+        padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    
     footer h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        margin-bottom: var(--spacing-lg);
     }
     
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .team-member {
+        padding: var(--spacing-md);
+        text-align: center;
+        border-radius: 16px;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .team-member a {
+        font-size: 1rem;
+        padding: var(--spacing-sm);
+        display: block;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .team-member a:hover {
+        background: rgba(2, 191, 231, 0.1);
+        transform: none;
+    }
+    
+    /* Metaverse Mobile Fullscreen */
+    .metaverse {
+        padding: var(--spacing-lg) 0;
+        position: relative;
+    }
+    
+    .metaverse .immersive-iframe {
+        height: 100vh;
+        min-height: 600px;
+        border-radius: 0;
+        position: relative;
+        z-index: 1;
     }
     
     .chatbot-input-container {
@@ -600,4 +666,83 @@ footer h2 {
         min-width: 120px;
         width: 100%;
     }
+
+    .chatbot-avatar {
+        width: 40%;
+        height: 40%;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .welcome h1 {
+        font-size: 3rem;
+    }
+    
+    .welcome p {
+        font-size: 1rem;
+    }
+    
+    .agent h1 {
+        font-size: 1.75rem;
+    }
+    
+    .metaverse h2 {
+        font-size: 1.5rem;
+    }
+    
+    footer {
+        padding: var(--spacing-xl) var(--spacing-sm);
+    }
+    
+    footer h2 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .team-grid {
+        max-width: 280px;
+        gap: var(--spacing-sm);
+    }
+    
+    .team-member {
+        padding: var(--spacing-sm);
+    }
+    
+    .team-member a {
+        font-size: 0.9rem;
+        padding: var(--spacing-xs);
+    }
+    
+    .metaverse .immersive-iframe {
+        min-height: 500px;
+    }
+    
+    .chatbot-avatar {
+        width: 50%;
+        height: 50%;
+    }
+    
+    .voice-transcription-container {
+        width: 90%;
+        padding: var(--spacing-md);
+    }
+    
+    .transcription-text p {
+        font-size: 1rem;
+        min-height: 50px;
+        padding: var(--spacing-sm);
+    }
+
+    .agent h2 {
+        margin: var(spacing-md) 0;
+    }
+
+    .agent p{
+        padding: 20px;
+    }
+    
+
+
+
 }
