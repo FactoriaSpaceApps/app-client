@@ -421,6 +421,11 @@ p {
     box-shadow: 0 4px 12px rgba(11, 61, 145, 0.3);
 }
 
+#send-button{
+    background: var(--color-nasa-dark-blue);
+    color: var(--color-white);
+}
+
 .chatbot-button.microphone {
     background: var(--color-nasa-red);
     min-width: auto;
