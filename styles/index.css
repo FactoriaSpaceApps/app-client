@@ -60,7 +60,6 @@ body {
     color: var(--color-base);
     background-color: var(--color-bg-primary);
     width: 100%;
-    line-height: 1.6;
     overflow-x: hidden;
 }
 
@@ -212,12 +211,12 @@ p {
     padding: var(--spacing-3xl) 0;
     text-align: center;
     background: var(--color-nasa-blue);
-    color: #000;
+    color:var(--color-bg-primary)
 
 }
 
 .agent h2 {
-    color: var(--color-bg-primary);
+    color: var(--color-white);
     font-size: 2.5rem;
     margin-bottom: var(--spacing-lg);
     font-weight: 700;
@@ -292,6 +291,7 @@ p {
 
 .chatbot-input-container {
     display: flex;
+    flex-direction: column;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     align-items: flex-end;
@@ -300,7 +300,7 @@ p {
 
 /* Voice Transcription Container */
 .voice-transcription-container {
-    background: var(--color-gray-lightest);
+    background: var(--color-nasa-red);
     border-radius: 12px;
     padding: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
@@ -646,9 +646,21 @@ footer h2 {
     }
     
     .chatbot-input-container {
+        align-items: center;
+        gap: var(--spacing-md);
+        display: flex;
         flex-direction: column;
-        align-items: stretch;
     }
+    .chatbot-response-message {
+        color:#d6d7d9;
+        font-style: italic;
+        background-color: transparent;
+        border: 2px solid #d6d7d9;
+        width: 100%;
+        text-align: left;
+
+    }
+ 
     
     .chatbot-buttons {
         flex-direction: column;
@@ -656,10 +668,11 @@ footer h2 {
     }
     
     .transcription-buttons {
-        flex-direction: column;
         align-items: center;
         gap: var(--spacing-md);
     }
+
+    
     
     .chatbot-button.confirm-voice,
     .chatbot-button.cancel-voice {
