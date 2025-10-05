@@ -1,3 +1,6 @@
+:root {
+--color-nasa-red: #dd361c;
+
 body {
     margin: 0;
     padding: 0;
@@ -15,4 +18,14 @@ nav {
     margin-bottom: 10px;
     width: 100%;
     text-align: center;
+}
+
+.button-control {
+    background: var(--color-nasa-red);
+    min-width: auto;
+    border-radius: 10%;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    padding: 10px;
 }
