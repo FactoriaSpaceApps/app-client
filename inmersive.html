@@ -35,15 +35,12 @@
                     <a-entity shadow="enabled: true" gltf-model="#iceberg2" scale="2.5 2.5 2.5" position="-0.1.8 -1.838 -3.3" rotation="0 -80 0"> </a-entity>
                     <a-ocean width="50" depth="50" density="20" position="0 0 -4" oceanfixed rotation="-90 0 0">
                     </a-ocean>
-                    
-                    
                       <!--a-entity gltf-model="#earth" position="0 2.5 -2" rotation="35 0 0"></a-entityEEUU-->
                       <a-entity gltf-model="#earth" position="0 2.5 -2" rotation="35 0 0" animation="property: rotation; to: 0 -360 0; loop: true; dur: 10000; easing: linear"></a-entity>
 
                     <a-entity id="networknodes" babia-queryjson="url: ./staticdata/clima_nodes.json;"></a-entity>
                     <a-entity id="networklinks" babia-queryjson="url: ./staticdata/clima_links.json;"></a-entity>
                     <a-entity position="0 2 -7" lounge-plinth="width: 6; depth: 6" lounge-staydown>
-                 
                     <a-entity id="network" visible="false" babia-network='nodesFrom: networknodes; linksFrom: networklinks; nodeId: valor; nodeLabel: valor; nodeAutoColorBy: color;  nodeResolution: 20; nodeVal: importancia; nodeRelSize: 1; linkWidth: 0.1; nodeLegend: false;' scale="0.1 0.1 0.1" rotation="0 0 -90"></a-entity>
                     </a-entity>
                     <a-entity id="co2emitido" visible="false" scale="2 2 2">

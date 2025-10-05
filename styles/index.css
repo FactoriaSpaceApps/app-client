@@ -107,8 +107,8 @@ p {
 .welcome {
     position: relative;
     height: 100vh;
-    background: linear-gradient(135deg, var(--color-nasa-dark-blue) 0%, var(--color-nasa-blue) 50%, var(--color-nasa-light-blue) 100%);
-    color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-nasa-blue);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@ p {
     font-size: 4rem;
     font-weight: 900;
     margin-bottom: var(--spacing-lg);
-    background: linear-gradient(45deg, var(--color-white), var(--color-nasa-accent));
+    background: linear-gradient(45deg, var(--color-nasa-blue), var(--color-nasa-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -205,28 +205,6 @@ p {
 }
 
 /* Agent Section (Chatbot) */
-.agent {
-    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-gray-lightest) 100%);
-    color: var(--color-base);
-    padding: var(--spacing-3xl) 0;
-    text-align: center;
-}
-
-.agent h1 {
-    color: var(--color-nasa-blue);
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-lg);
-    font-weight: 700;
-}
-
-.agent p {
-    font-size: 1.25rem;
-    color: var(--color-gray);
-    margin-bottom: var(--spacing-2xl);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* Chatbot Container */
 .chatbot-container {
@@ -482,9 +460,9 @@ p {
     color: var(--color-gray-dark);
 }
 
-/* Metaverse Section */
-.metaverse {
-    background: linear-gradient(135deg, var(--color-nasa-blue) 0%, var(--color-nasa-dark-blue) 100%);
+/* Metaverse and Agent Section */
+.metaverse, .agent {
+    background:var(--color-nasa-blue);
     color: var(--color-white);
     text-align: center;
     width: 100%;
@@ -492,13 +470,13 @@ p {
 
 }
 
-.metaverse h2 {
+.metaverse h2, .agent h2 {
     font-size: 2.25rem;
     margin-bottom: var(--spacing-lg);
     font-weight: 700;
 }
 
-.metaverse p {
+.metaverse p, .agent p {
     font-size: 1.25rem;
     opacity: 0.9;
     max-width: 600px;
@@ -539,7 +517,7 @@ footer h2 {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: var(--spacing-lg);
     max-width: 1000px;
     margin: 0 auto;
