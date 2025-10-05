@@ -16,8 +16,8 @@ function init() {
     setTimeout(() => {
         const intro = document.getElementById('introaudio');
         intro.play();
-        const heartEntity = document.getElementById('heart');
-        heartEntity.setAttribute('visible', 'true ');
+        const heartEntity = document.getElementById('Heart');
+        heartEntity.setAttribute('visible', 'true');
     }, 2000);
     setTimeout(() => {
         const more = document.getElementById('more');
@@ -32,7 +32,7 @@ function more() {
     const earthEntity = document.getElementById('earth');
     earthEntity.setAttribute('visible', 'true');
 
-    const heartEntity = document.getElementById('HeartModel');
+    const heartEntity = document.getElementById('Heart');
     heartEntity.setAttribute('visible', 'false');
 
     const moreaudio = document.getElementById('moreaudio');
