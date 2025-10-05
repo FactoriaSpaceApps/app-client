@@ -24,7 +24,7 @@ input {
       width: 30%;
       padding: 10px;
       border: none;
-      background-color: #0b3d91;;
+      background-color: #061f4a;
       color: #fff;
       border-radius: 0 8px 8px 0;
       cursor: pointer;
@@ -48,6 +48,7 @@ input {
       height: 110px !important;
       right: unset !important;
       left: 43%;
+      background-color: rgb(115 107 107 / 50%) !important;
 }
 
 .display-none,
