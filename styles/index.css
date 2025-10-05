@@ -543,7 +543,7 @@ footer h2 {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: var(--spacing-md);
     max-width: 1000px;
     margin: 0 auto;
