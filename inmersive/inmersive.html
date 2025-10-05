@@ -12,9 +12,9 @@
 </head>
 <body>
           <nav>
-                    <button type="button" id='init' class="btn btn-primary" onclick="init()">Start</button>
-                    <button type="button" id='more' class="btn btn-primary" onclick="more()" style="display:none">I want to know more</button>
-                    <button type="button" id='deep' class="btn btn-primary" onclick="deep()" style="display:none">I want to dive deeper</button>
+                    <button type="button" id='init' class="button-control" onclick="init()">Start</button>
+                    <button type="button" id='more' class="button-control" onclick="more()" style="display:none">I want to know more</button>
+                    <button type="button" id='deep' class="button-control" onclick="deep()" style="display:none">I want to dive deeper</button>
           </nav>
           <a-scene cursor="rayOrigin: mouse">
                     <a-light type="ambient" color="#FFF" intensity="0.5"></a-light>
@@ -35,7 +35,7 @@
                     <a-entity shadow="enabled: true" gltf-model="#iceberg2" scale="2.5 2.5 2.5" position="-0.1.8 -1.838 -3.3" rotation="0 -80 0"> </a-entity>
                     <a-ocean width="50" depth="50" density="20" position="0 0 -4" oceanfixed rotation="-90 0 0">
                     </a-ocean>
-                    <a-entity id="earth" gltf-model="#earthmodel" visible="false" position="0 2.5 -2" rotation="30 0 0" animation="property: rotation; to: 30 360 0; loop: true; dur: 10000; easing: linear"></a-entity>
+                    <a-entity id="earth" gltf-model="#earthmodel" visible="false" position="0 2.5 -3" rotation="30 0 0" animation="property: rotation; to: 30 360 0; loop: true; dur: 10000; easing: linear"></a-entity>
           </a-scene>
           <script src="control.js"></script>
 </body>
