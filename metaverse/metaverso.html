@@ -65,11 +65,8 @@
                               </a-entity>
                         </template>
                        <video id="ssvid1" src="assets/ssvid1.mp4"></video>
-                        <video id="ssvidted" src="assets/ssvidted.mp4"></video>
-                        <!--video id="ssvid3" src="assets/ssvid3.mp4"></video-->
-                        <video id="ssvid3" src="assets/vid.mp4"></video>
-                        <!--video id="equipo" src="assets/Importancia-equipo.mp4" preload="auto" crossorigin="anonymous"></video-->
-                         <video id="clickEquipo" src="assets/Importancia-equipo.mp4"></video>
+                        <video id="ssvid3" src="assets/ssvid3.mp4"></video>
+                        <video id="ssvid2" src="assets/ssvid2.mp4"></video>
                         <a-asset-item id="tv-model" src="assets/tv.glb"></a-asset-item>
                   </a-assets>
                   <a-entity>
@@ -96,12 +93,12 @@
                               <a-video video1 src="#ssvid1" position="-.43 .35 0.24" width="3.8" height="2.2"></a-video>
                    </a-entity>
                   <a-entity position="0 1 -9" scale="1 1" rotation="0 0 0" gltf-model="#tv-model">
-                              <a-video videoted src="#ssvidted" position="-.43 .35 0.24" width="3.8" height="2.2"></a-video>
+                              <a-video videoted src="#ssvid2" position="-.43 .35 0.24" width="3.8" height="2.2"></a-video>
                    </a-entity>
 
                    <a-entity position="-10 1 -12" scale="1 1" rotation="0 0 0" gltf-model="#tv-model">
-                              <!--a-video video3 src="#ssvid3" position="-.43 .35 0.24" width="3.8" height="2.2"></a-video-->
-                              <a-video clickequipo src="#clickEquipo" position="-.4 .4 0.24" width="4" height="2.3"></a-video>
+                              <a-video video3 src="#ssvid3" position="-.43 .35 0.24" width="3.8" height="2.2"></a-video>
+
                    </a-entity>
                    <a-entity id="co2concentracion" visible="true" scale="2 2 2" position="5 1 -25">
                               <a-entity text="value:CO2 concentration; color: white" position="0.4 1.5 0" scale="3 3 3"></a-entity>

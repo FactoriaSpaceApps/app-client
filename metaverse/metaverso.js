@@ -116,12 +116,66 @@ AFRAME.registerComponent('videoted', {
             console.log('videoted');
             el.addEventListener('click', function () {
                   if (play) {
-                        document.getElementById('videoted').pause()
+                        document.getElementById('ssvid2').pause()
                         play = false;
                         return;
                   }
                   play = true;
-                  document.getElementById('videoted').play()
+                  document.getElementById('ssvid2').play()
+            });
+      }
+});
+
+AFRAME.registerComponent('video1', {
+      init: function () {
+            var el = this.el;
+            play = false;
+            console.log(el);
+            console.log('video1');
+            el.addEventListener('click', function () {
+                  if (play) {
+                        document.getElementById('ssvid1').pause()
+                        play = false;
+                        return;
+                  }
+                  play = true;
+                  document.getElementById('ssvid1').play()
+            });
+      }
+});
+
+AFRAME.registerComponent('video2', {
+      init: function () {
+            var el = this.el;
+            play = false;
+            console.log(el);
+            console.log('video2');
+            el.addEventListener('click', function () {
+                  if (play) {
+                        document.getElementById('ssvid2').pause()
+                        play = false;
+                        return;
+                  }
+                  play = true;
+                  document.getElementById('ssvid2').play()
+            });
+      }
+});
+
+AFRAME.registerComponent('video3', {
+      init: function () {
+            var el = this.el;
+            play = false;
+            console.log(el);
+            console.log('video3');
+            el.addEventListener('click', function () {
+                  if (play) {
+                        document.getElementById('ssvid3').pause()
+                        play = false;
+                        return;
+                  }
+                  play = true;
+                  document.getElementById('ssvid3').play()
             });
       }
 });
