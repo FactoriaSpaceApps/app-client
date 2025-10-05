@@ -90,13 +90,25 @@
                         <a-video clickequipo src="#clickEquipo"></a-video>
                         <a-entity gltf-model="assets/play.gltf" clickequipo position="-0.3 -0.6 0"></a-entity>
                   </a-entity>
-                  <a-entity position="1 2 3" scale="1 1" rotation="0 200 0" gltf-model="#tv-model">
+                  <a-entity position="7 1 -15" scale="1 1" rotation="0 0 0" gltf-model="#tv-model">
                               <a-image src="assets/tv-portada.jpg" position="-.43 .35 0.24" width="3.8" height="2.2"></a-image>
                    </a-entity>
-                   <a-entity id="co2concentracion" visible="true" scale="2 2 2">
-                              <a-entity text="value:CO2 concentration; color: black" position="0.4 1.5 0" scale="3 3 3"></a-entity>
+                  <a-entity position="0 1 -9" scale="1 1" rotation="0 0 0" gltf-model="#tv-model">
+                              <a-image src="assets/tv-portada.jpg" position="-.43 .35 0.24" width="3.8" height="2.2"></a-image>
+                   </a-entity>
+                   <a-entity position="-10 1 -12" scale="1 1" rotation="0 0 0" gltf-model="#tv-model">
+                              <a-image src="assets/tv-portada.jpg" position="-.43 .35 0.24" width="3.8" height="2.2"></a-image>
+                   </a-entity>
+                   <a-entity id="co2concentracion" visible="true" scale="2 2 2" position="-2 1 -25">
+                              <a-entity text="value:CO2 concentration; color: white" position="0.4 1.5 0" scale="3 3 3"></a-entity>
                               <a-entity   babia-queryjson="url: ../staticdata/co2Concentracion.json" babia-bars='legend_scale: 5; height: value; chartHeight: 45; animation: true; palette: blues; axis_name: true; legend:true; x_axis: key_as_string; z_axis: key_as_string; legend_lookat: [laser-controls]; animation: true; ' position="-1 0 0.2" rotation="0 -0.2 0" scale="0.025 0.025 0.025"></a-entity>
                     </a-entity>
+
+                     <a-entity id="co2emitido" visible="true" scale="2 2 2" position="-8 1 -20">
+                              <a-entity text="value: CO2 emitido; color: white" position="0.4 1.5 0" scale="3 3 3"></a-entity>
+                              <a-entity  babia-queryjson="url: ./staticdata/co2Emision.json" babia-bars='legend_scale: 5; height: value; chartHeight: 45; animation: true; palette: blues; axis_name: true; legend:true; x_axis: key_as_string; z_axis: key_as_string; legend_lookat: [laser-controls]; animation: true; ' position="-1 0 0.2" rotation="0 -0.2 0" scale="0.025 0.025 0.025"></a-entity>
+                    </a-entity>
+
                   <a-box
                         id="boxred"
                         position="-8 8 -25"
