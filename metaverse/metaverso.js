@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io('https://polar-node-server.onrender.com');
 NAF.schemas.getComponentsOriginal = NAF.schemas.getComponents;
 NAF.schemas.getComponents = (template) => {
       if (!NAF.schemas.hasTemplate("#avatar-template")) {
