@@ -19,3 +19,10 @@
 #microphoneButton {
           margin-left: 0px;
 }
+
+@media screen and (max-width: 600px) {
+          #chat-input, #response {
+                    max-width: 90%;
+          } 
+    
+}
