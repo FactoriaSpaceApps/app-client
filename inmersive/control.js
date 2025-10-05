@@ -16,11 +16,13 @@ function init() {
     setTimeout(() => {
         const intro = document.getElementById('introaudio');
         intro.play();
-    }, 4000);
+        const heartEntity = document.getElementById('heart');
+        heartEntity.setAttribute('visible', 'true ');
+    }, 2000);
     setTimeout(() => {
         const more = document.getElementById('more');
         more.style.display = 'inline';
-    }, 25000);
+    }, 18500);
 }
 
 function more() {
@@ -29,6 +31,9 @@ function more() {
 
     const earthEntity = document.getElementById('earth');
     earthEntity.setAttribute('visible', 'true');
+
+    const heartEntity = document.getElementById('HeartModel');
+    heartEntity.setAttribute('visible', 'false');
 
     const moreaudio = document.getElementById('moreaudio');
     moreaudio.play();
