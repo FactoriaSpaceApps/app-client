@@ -36,3 +36,10 @@ nav {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     
 }
+.welcome-scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
