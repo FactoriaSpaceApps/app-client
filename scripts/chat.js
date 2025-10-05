@@ -30,20 +30,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     sendButton.addEventListener('click', function (e) {
         e.preventDefault();
         const message = input.value.trim();
+        console.log(message)
+        
         if (message) {
             responseElement.innerHTML = 'Procesando...';
+
             chatbotAvatar.classList.add('listening');
             
-            fetch('https://webextendida.es/chatOso.php?question=' + encodeURIComponent(message), {
-                method: 'GET',
+            fetch('https://polar-agent-server.onrender.com/chat', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                body: JSON.stringify({
+                    "message": message
+                })
             })
-            .then(response => response.text())
-            .then(text => {
+            .then(response => response.json())
+            .then(data => {
+                console.log(`🧠 ${data.response}`)
+                const text = data.response
                 input.value = '';
-                responseElement.innerHTML = text;
+                responseElement.textContent = text;
                 chatbotAvatar.classList.remove('listening');
                 chatbotAvatar.classList.add('speaking');
                 
