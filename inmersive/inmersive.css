@@ -1,0 +1,31 @@
+:root {
+--color-nasa-red: #dd361c;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.a-enter-vr,
+.a-enter-ar {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    bottom: 65px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.button-control {
+    background: var(--color-nasa-red);
+    min-width: auto;
+    border-radius: 10%;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    padding: 10px;
+}

@@ -1,0 +1,591 @@
+
+:root {
+  /* NASA Color Palette */
+  --color-primary: #0b3d91;
+  --color-primary-dark: #061f4a;
+  --color-primary-light: #105bd8;
+  
+  /* NASA Blue Variations */
+  --color-nasa-blue: #0b3d91;
+  --color-nasa-dark-blue: #061f4a;
+  --color-nasa-light-blue: #105bd8;
+  --color-nasa-accent: #02bfe7;
+  
+  /* NASA Red/Orange */
+  --color-nasa-red: #dd361c;
+  --color-nasa-orange: #ff6b35;
+  
+  /* Base Colors */
+  --color-base: #212121;
+  --color-white: #ffffff;
+  --color-gray-dark: #323a45;
+  --color-gray: #5b616b;
+  --color-gray-light: #aeb0b5;
+  --color-gray-lighter: #d6d7d9;
+  --color-gray-lightest: #f1f1f1;
+  
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-dark: #212121;
+  
+  /* Typography */
+  --font-family-sans: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-family-serif: "Merriweather", "Georgia", "Cambria", "Times New Roman", serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 4rem;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    color: var(--color-base);
+    background-color: var(--color-bg-primary);
+    width: 100%;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.125rem;
+}
+
+/* Welcome Section with Scrolling Effect */
+.welcome {
+    position: relative;
+    background: var(--color-white);
+    color: var(--color-nasa-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 150px
+}
+
+@keyframes starfield {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: var(--spacing-2xl);
+}
+
+.welcome h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: var(--spacing-lg);
+    background: linear-gradient(45deg, var(--color-nasa-blue), var(--color-nasa-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 20px rgba(2, 191, 231, 0.5)); }
+    to { filter: drop-shadow(0 0 30px rgba(2, 191, 231, 0.8)); }
+}
+
+.welcome p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+.welcome-scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.welcome-scroll-indicator::after {
+    content: '▼';
+    font-size: 2rem;
+    color: var(--color-nasa-accent);
+}
+
+/* Immersive Sections */
+.immersive-iframe {
+    border: none;
+    width: 100%;
+    height: 600px;
+    display: block;
+    border-radius: 10px;
+    /*border: 5px solid var(--color-gray-lightest);*/
+}
+
+/* Agent Section (Chatbot) */
+
+/* Chatbot Container */
+.chatbot-container {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.chatbot-avatar {
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-xl);
+    border: 4px solid var(--color-nasa-red); 
+    box-shadow: 0 4px 20px rgba(2, 191, 231, 0.3);
+    transition: all 0.3s ease;
+}
+
+.chatbot-avatar:hover {
+    transform: scale(1.05);
+}
+
+.chatbot-avatar.speaking {
+    animation: speaking 0.6s ease-in-out infinite alternate;
+    box-shadow: 0 6px 25px rgba(2, 191, 231, 0.5);
+}
+
+@keyframes speaking {
+    0% { 
+        transform: scale(1) rotate(-2deg);
+        filter: brightness(1.1);
+    }
+    100% { 
+        transform: scale(1.05) rotate(2deg);
+        filter: brightness(1.2);
+    }
+}
+
+.chatbot-avatar.listening {
+    animation: listening 1s ease-in-out infinite;
+    border-color: var(--color-nasa-red);
+    box-shadow: 0 4px 20px rgba(221, 54, 28, 0.4);
+}
+
+@keyframes listening {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.02);
+        opacity: 0.8;
+    }
+}
+
+.chatbot-input-container {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    align-items: flex-end;
+    width: 100%;
+}
+
+/* Voice Transcription Container */
+.voice-transcription-container {
+    background: var(--color-gray-lightest);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    border: 2px solid var(--color-nasa-red);
+    width: 50%;
+}
+
+.transcription-text {
+    margin-bottom: var(--spacing-md);
+}
+
+.transcription-text p {
+    font-size: 1.1rem;
+    color: var(--color-gray-dark);
+    margin: 0;
+    padding: var(--spacing-md);
+    background: var(--color-white);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-nasa-accent);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.transcription-text.listening p {
+    animation: listening-text 1.5s ease-in-out infinite;
+    color: var(--color-nasa-red);
+}
+
+@keyframes listening-text {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.transcription-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.chatbot-button.confirm-voice {
+    background: var(--color-nasa-blue);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+}
+
+.chatbot-button.confirm-voice:hover {
+    background: var(--color-nasa-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.3);
+}
+
+.chatbot-button.cancel-voice {
+    background: var(--color-gray);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.chatbot-button.cancel-voice:hover {
+    background: var(--color-gray-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 58, 69, 0.3);
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-gray-lightest);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: var(--font-family-sans);
+    resize: vertical;
+    min-height: 60px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chatbot-input:focus {
+    outline: none;
+    border-color: var(--color-nasa-accent);
+    box-shadow: 0 0 0 3px rgba(2, 191, 231, 0.1);
+}
+
+.chatbot-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    align-items: center;
+}
+
+.chatbot-button {
+    background: var(--color-nasa-blue);
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.chatbot-button:hover {
+    background: var(--color-nasa-dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 61, 145, 0.3);
+}
+
+.chatbot-button.microphone {
+    background: var(--color-nasa-red);
+    min-width: auto;
+    border-radius: 10%;
+    font-size: 1.4rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(221, 54, 28, 0.3);
+}
+
+.chatbot-button.microphone:hover {
+    background: #c62d1f;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(221, 54, 28, 0.4);
+}
+
+.chatbot-button.microphone.recording {
+    background: #ff4444;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.chatbot-button.chat-toggle {
+    background: var(--color-nasa-accent);
+    min-width: auto;
+    border-radius: 10%;
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.chatbot-button.chat-toggle:hover {
+    background: #00a6d2;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(2, 191, 231, 0.3);
+}
+
+.chatbot-button.chat-toggle.active {
+    background: var(--color-gray-dark);
+    transform: rotate(180deg);
+}
+
+.chatbot-response {
+    background: var(--color-gray-lightest);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    margin-top: var(--spacing-lg);
+    min-height: 60px;
+    border-left: 4px solid var(--color-nasa-accent);
+    font-style: italic;
+    color: var(--color-gray-dark);
+}
+
+/* Metaverse and Agent Section */
+.metaverse, .agent {
+    background:var(--color-nasa-blue);
+    color: var(--color-white);
+    text-align: center;
+    width: 100%;
+    padding: var(--spacing-2xl);
+}
+
+.metaverse h2, .agent h2 {
+    font-size: 2.25rem;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
+.metaverse p, .agent p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--color-nasa-dark-blue) 0%, var(--color-base) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-3xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="0.5" fill="rgba(2,191,231,0.3)"/><circle cx="90" cy="30" r="0.5" fill="rgba(2,191,231,0.3)"/><circle cx="30" cy="90" r="0.5" fill="rgba(2,191,231,0.3)"/></svg>');
+    opacity: 0.5;
+    z-index: 1;
+}
+
+footer h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-nasa-accent);
+    position: relative;
+    z-index: 2;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.team-member {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-sm);
+    border-radius: 12px;
+    border: 1px solid rgba(2, 191, 231, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.team-member:hover {
+    background: rgba(2, 191, 231, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(2, 191, 231, 0.3);
+}
+
+.team-member a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.team-member a:hover {
+    color: var(--color-nasa-accent);
+    text-shadow: 0 0 10px rgba(2, 191, 231, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome h1 {
+        font-size: 2.5rem;
+    }
+    
+    .welcome p {
+        font-size: 1.25rem;
+    }
+    
+    .agent h1 {
+        font-size: 2rem;
+    }
+    
+    .metaverse h2 {
+        font-size: 1.75rem;
+    }
+    
+    footer h2 {
+        font-size: 2rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-md);
+    }
+    
+    .chatbot-input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .chatbot-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .transcription-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .chatbot-button.confirm-voice,
+    .chatbot-button.cancel-voice {
+        min-width: 120px;
+        width: 100%;
+    }
+}
