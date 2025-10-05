@@ -36,115 +36,115 @@ document.addEventListener('DOMContentLoaded', (event) => {
             responseElement.innerHTML = 'Procesando...';
 
             // chatbotAvatar.classList.add('listening');
-            // API EXTERNA
-            // fetch('https://webextendida.es/chatOso.php?question=' + encodeURIComponent(message), {
-            //     method: 'GET',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     }
-            // })
-            //     .then(response => response.text())
-            //     .then(text => {
-            //         input.value = '';
-            //         responseElement.innerHTML = text;
-            //         const formData = new URLSearchParams();
-            //         formData.append('text', text);
-
-            //         // Definir la función async que hará la solicitud fetch
-            //         async function fetchAudio() {
-            //             try {
-            //                 const response = await fetch('https://webextendida.es/chatOsoAudio.php', {
-            //                     method: 'POST',
-            //                     headers: {
-            //                         'Content-Type': 'application/x-www-form-urlencoded'
-            //                     },
-            //                     body: formData.toString()
-            //                 });
-
-            //                 if (!response.ok) {
-            //                     throw new Error('Network response was not ok ' + response.statusText);
-            //                 }
-
-            //                 const audioBlob = await response.blob();
-            //                 const audioUrl = URL.createObjectURL(audioBlob);
-            //                 audioPlayer.src = audioUrl;
-            //                 audioPlayer.play();
-            //             } catch (error) {
-            //                 console.error('Error generating audio:', error);
-            //             }
-            //         }
-
-            //         // Llamar la función async
-            //         fetchAudio();
-            //     })
-            //     .catch((error) => {
-            //         console.error('Error:', error);
-            //         responseElement.innerHTML = 'Ocurrió un error: ' + error.message;
-            //     });
-            // API PYTHON
-            fetch('https://polar-agent-server.onrender.com/chat', {
-                method: 'POST',
+            // API EXTERNA problemas con Python TODO
+            fetch('https://webextendida.es/chatOso.php?question=' + encodeURIComponent(message), {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    "message": message
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(`🧠 ${data.response}`)
-                const text = data.response
-                input.value = '';
-                responseElement.textContent = text;
-                chatbotAvatar.classList.remove('listening');
-                chatbotAvatar.classList.add('speaking');
-                
-                const formData = new URLSearchParams();
-                formData.append('text', text);
-
-                // Definir la función async que hará la solicitud fetch
-                async function fetchAudio() {
-                    try {
-                        const response = await fetch('https://webextendida.es/chatOsoAudio.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            },
-                            body: formData.toString()
-                        });
-                
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                
-                        const audioBlob = await response.blob();
-                        const audioUrl = URL.createObjectURL(audioBlob);
-                        audioPlayer.src = audioUrl;
-                        
-                        // Play audio and handle speaking animation
-                        audioPlayer.onplay = function() {
-                            chatbotAvatar.classList.add('speaking');
-                        };
-                        
-                        audioPlayer.onended = function() {
-                            chatbotAvatar.classList.remove('speaking');
-                        };
-                        
-                        audioPlayer.play();
-                    } catch (error) {
-                        console.error('Error generating audio:', error);
-                        chatbotAvatar.classList.remove('speaking');
-                    }
                 }
-                // Llamar la función async
-                fetchAudio();
             })
-            .catch((error) => {
-                console.error('Error:', error);
-                responseElement.innerHTML = 'Ocurrió un error: ' + error.message;
-                chatbotAvatar.classList.remove('listening', 'speaking');
-            });
+                .then(response => response.text())
+                .then(text => {
+                    input.value = '';
+                    responseElement.innerHTML = text;
+                    const formData = new URLSearchParams();
+                    formData.append('text', text);
+
+                    // Definir la función async que hará la solicitud fetch
+                    async function fetchAudio() {
+                        try {
+                            const response = await fetch('https://webextendida.es/chatOsoAudio.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded'
+                                },
+                                body: formData.toString()
+                            });
+
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok ' + response.statusText);
+                            }
+
+                            const audioBlob = await response.blob();
+                            const audioUrl = URL.createObjectURL(audioBlob);
+                            audioPlayer.src = audioUrl;
+                            audioPlayer.play();
+                        } catch (error) {
+                            console.error('Error generating audio:', error);
+                        }
+                    }
+
+                    // Llamar la función async
+                    fetchAudio();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    responseElement.innerHTML = 'Ocurrió un error: ' + error.message;
+                });
+            // API PYTHON
+            // fetch('https://polar-agent-server.onrender.com/chat', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         "message": message
+            //     })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     console.log(`🧠 ${data.response}`)
+            //     const text = data.response
+            //     input.value = '';
+            //     responseElement.textContent = text;
+            //     chatbotAvatar.classList.remove('listening');
+            //     chatbotAvatar.classList.add('speaking');
+                
+            //     const formData = new URLSearchParams();
+            //     formData.append('text', text);
+
+            //     // Definir la función async que hará la solicitud fetch
+            //     async function fetchAudio() {
+            //         try {
+            //             const response = await fetch('https://webextendida.es/chatOsoAudio.php', {
+            //                 method: 'POST',
+            //                 headers: {
+            //                     'Content-Type': 'application/x-www-form-urlencoded'
+            //                 },
+            //                 body: formData.toString()
+            //             });
+                
+            //             if (!response.ok) {
+            //                 throw new Error('Network response was not ok ' + response.statusText);
+            //             }
+                
+            //             const audioBlob = await response.blob();
+            //             const audioUrl = URL.createObjectURL(audioBlob);
+            //             audioPlayer.src = audioUrl;
+                        
+            //             // Play audio and handle speaking animation
+            //             audioPlayer.onplay = function() {
+            //                 chatbotAvatar.classList.add('speaking');
+            //             };
+                        
+            //             audioPlayer.onended = function() {
+            //                 chatbotAvatar.classList.remove('speaking');
+            //             };
+                        
+            //             audioPlayer.play();
+            //         } catch (error) {
+            //             console.error('Error generating audio:', error);
+            //             chatbotAvatar.classList.remove('speaking');
+            //         }
+            //     }
+            //     // Llamar la función async
+            //     fetchAudio();
+            // })
+            // .catch((error) => {
+            //     console.error('Error:', error);
+            //     responseElement.innerHTML = 'Ocurrió un error: ' + error.message;
+            //     chatbotAvatar.classList.remove('listening', 'speaking');
+            // });
         }
     });
 });
