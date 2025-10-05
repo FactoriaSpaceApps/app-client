@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Introduction</title>
+          <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.4.0/dist/aframe-extras.min.js"></script>
+          <script src="ocean.js"></script>
+          <script src="../scripts/aframe-babia-components.js"></script>
+          <link rel="stylesheet" href="inmersive.css">
+</head>
+<body>
+          <nav>
+                    <button type="button" id='init' class="btn btn-primary" onclick="init()">Start</button>
+                    <button type="button" id='more' class="btn btn-primary" onclick="more()" style="display:none">I want to know more</button>
+                    <button type="button" id='deep' class="btn btn-primary" onclick="deep()" style="display:none">I want to dive deeper</button>
+          </nav>
+          <a-scene cursor="rayOrigin: mouse">
+                    <a-light type="ambient" color="#FFF" intensity="0.5"></a-light>
+                    <a-light type="directional" color="#FFF" intensity="0.5" position="3 3 3"></a-light>
+                    <a-assets>
+                              <a-asset-item id="bear" src="assets/oso-walk.glb" />
+                              <a-asset-item id="earthmodel" src="assets/earth.glb" />
+                              <a-asset-item id="iceberg2" src="assets/Icicle.glb" />
+                              <audio id="introaudio" src="assets/audio/intro.mp3"></audio>
+                              <audio id="moreaudio" src="assets/audio/more.mp3"></audio>
+                              <audio id="deepaudio" src="assets/audio/deep.mp3"></audio>
+                    </a-assets>
+                    <a-entity position="0 0 2" rotation="0 0 0" id="rig" movement-controls="controls: gamepad,keyboard,nipple; constrainToNavMesh: true">
+                    <a-entity camera position="0 1.5 -1.2" look-controls="pointerLockEnabled: false;"></a-entity>
+                    </a-entity>
+                    <a-entity gltf-model="#bear" scale="0.8 0.8 0.8" walk position="0 -0.01 -3" rotation="-2 -9 0"></a-entity>
+                    <a-entity shadow="enabled: true" gltf-model="#iceberg" scale="2 2 2" position="-5 0 -5" ></a-entity>
+                    <a-entity shadow="enabled: true" gltf-model="#iceberg2" scale="2.5 2.5 2.5" position="-0.1.8 -1.838 -3.3" rotation="0 -80 0"> </a-entity>
+                    <a-ocean width="50" depth="50" density="20" position="0 0 -4" oceanfixed rotation="-90 0 0">
+                    </a-ocean>
+                    <a-entity id="earth" gltf-model="#earthmodel" visible="false" position="0 2.5 -2" rotation="30 0 0" animation="property: rotation; to: 30 360 0; loop: true; dur: 10000; easing: linear"></a-entity>
+          </a-scene>
+          <script src="control.js"></script>
+</body>
+</html>
