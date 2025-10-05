@@ -53,10 +53,13 @@
                         <template id="avatar-template">
                               <a-entity class="avatar">
                                     <a-entity
-                                          id="robi"
+                                          id="duck"
                                           miposition
                                           click
-                                          gltf-model="assets/robot.glb"
+                                          gltf-model="assets/rubber-duck-2.glb"
+                                          position="0 -2 0"
+                                          scale="0.2 0.2 0.2"
+                                          rotation="0 180 0"
                                     ></a-entity>
                               </a-entity>
                         </template>
@@ -127,7 +130,8 @@
                         color="#061f4a"
                         static-body
                   ></a-box>
-                  <a-entity light="type:ambient;intensity:1"></a-entity>
+                  <!--a-entity light="type:ambient;intensity:1.5"></a-entity-->
+                   <a-entity light="type:ambient;intensity:1.5"></a-entity>
             </a-scene>
       </body>
 </html>
